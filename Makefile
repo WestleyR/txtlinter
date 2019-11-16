@@ -21,6 +21,10 @@ static: $(MAIN)
 	$(CC) $(CFLAGS) -DCOMMIT_HASH=\"$(COMMIT)\" --static -o $(TARGET) $(MAIN)
 
 .PHONY:
+test: $(TARGET)
+	bash run-tests
+
+.PHONY:
 install: $(TARGET)
 	mkdir -p $(PREFIX)/bin
 	cp -f $(TARGET) $(PREFIX)/bin

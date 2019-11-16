@@ -1,0 +1,13 @@
+
+set -e
+
+cd tests/
+
+cp testdata/test.1.rst tmp
+
+cd tmp/
+
+../../txtlinter --write
+
+cmp --silent test.1.rst ../expected-outputs/test.1.rst
+
